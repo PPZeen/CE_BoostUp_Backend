@@ -25,6 +25,9 @@ const submitSchema = new Schema(
             type: Number,
             required: 'score cannot be blank'
         },
+        oldScore: {
+            type: Number
+        },
         createAt: {
             type: Date,
         },
