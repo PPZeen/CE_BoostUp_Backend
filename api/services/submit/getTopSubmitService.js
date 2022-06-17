@@ -7,7 +7,9 @@ module.exports = async function getTopSubmitService(questionIdData) {
             status: true
         }).select('-__v -_id -oldScore').sort({ updateAt: 1 } ).limit(5);
 
+        if (getSubmits.length == 0) return {message: 'No submit yet...'}
         if (getSubmits == null) return {message: 'Not found submits.'};
+        
         return getSubmits;
     } catch(err) {
         return {message: 'Error get submit in service.'};
