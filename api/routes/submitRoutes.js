@@ -1,7 +1,10 @@
-const submitBuilder = require('../controllers/submitController');
+const express = require('express');
+const router = express.Router();
+const submitController = require('../controllers/submit');
 
-module.exports = app => {
-    app
-        .route('/submits')
-        .post();
-};
+router.post('/submit', submitController.createSubmitController);
+router.get('/submit/id', submitController.getSubmitByIdController);
+router.get('/submit/question/:questionId', submitController.getTopSubmitController);
+router.get('/submit/:questionId/:userId', submitController.getSubmitController);
+
+module.exports = router;

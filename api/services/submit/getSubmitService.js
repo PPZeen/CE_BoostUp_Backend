@@ -6,6 +6,7 @@ module.exports = async function getSubmitService(userIdData, questionIdData) {
             userId: userIdData,
             questionId: questionIdData
         }).select('-__v -_id -oldScore');
+
         if (getSubmit == null) return {message: 'Not found submit...'};
         return getSubmit;
     } catch(err) {
